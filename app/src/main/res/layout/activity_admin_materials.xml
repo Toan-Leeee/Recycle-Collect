@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/surface" android:fillViewport="true">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+    <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_next" android:text="Thêm vật liệu" android:layout_marginTop="14dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="30dp">
+      <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="Vật liệu" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/ink" android:layout_marginTop="0dp" android:layout_weight="1"/>
+      <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Đơn giá tham khảo" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/ink" android:layout_marginTop="0dp"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/admin_list" android:orientation="vertical" android:layout_marginTop="18dp"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Chọn vật liệu để chỉnh sửa." android:textSize="12sp" android:textStyle="normal" android:textColor="@color/ink" android:layout_marginTop="80dp"/>
+  </LinearLayout>
+</ScrollView>

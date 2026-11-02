@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screen_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/surface">
+  <LinearLayout
+      android:id="@+id/screen_toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="56dp"
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      android:paddingStart="8dp"
+      android:paddingEnd="8dp">
+    <View android:layout_width="48dp" android:layout_height="1dp" android:visibility="gone"/>
+    <ImageButton
+        android:id="@+id/screen_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/abc_ic_ab_back_material"
+        android:contentDescription="Quay lại"/>
+    <TextView
+        android:id="@+id/screen_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textColor="@color/ink"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
+    <ImageButton
+        android:id="@+id/screen_more"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_more"
+        android:contentDescription="Tùy chọn"/>
+  </LinearLayout>
+  <FrameLayout
+      android:id="@+id/screen_content"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"/>
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:id="@+id/screen_navigation"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/surface"
+      android:visibility="visible"/>
+</LinearLayout>

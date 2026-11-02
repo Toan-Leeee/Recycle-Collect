@@ -1,0 +1,82 @@
+[
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\view_demo_banner.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\view_demo_banner.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_maps.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_maps.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_explore_requests.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_explore_requests.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_chat.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_history.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_history.xml"
+    },
+    {
+        "merged": "vn.edu.recyclecollect.app-mergeDebugResources-35:/layout/activity_collection_result.xml",
+        "source": "vn.edu.recyclecollect.app-main-38:/layout/activity_collection_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_my_requests.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_my_requests.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_request_detail.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_request_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_map.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_map.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_admin_materials.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_admin_materials.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_admin_edit_material.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_admin_edit_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_register.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_home.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_collection_result.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_collection_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\view_screen_chrome.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\view_screen_chrome.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_create_request.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_create_request.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\item_request_wire.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\item_request_wire.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_materials.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_materials.xml"
+    },
+    {
+        "merged": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-mergeDebugResources-35:\\layout\\activity_profile.xml",
+        "source": "C:\\Users\\acer\\.gradle\\daemon\\9.0.0\\vn.edu.recyclecollect.app-main-38:\\layout\\activity_profile.xml"
+    }
+]

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="ink">#1E352C</color>
+  <color name="muted">#65776E</color>
+  <color name="green">#176B52</color>
+  <color name="green_dark">#10513E</color>
+  <color name="mint">#E7F4EC</color>
+  <color name="line">#D5E5DB</color>
+  <color name="surface">#F7FAF8</color>
+  <color name="banner">#E7F4EC</color>
+</resources>

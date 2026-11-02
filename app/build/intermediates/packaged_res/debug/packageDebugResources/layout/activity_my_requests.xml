@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/surface" android:padding="20dp">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="45dp" android:orientation="horizontal">
+    <TextView android:layout_width="0dp" android:layout_height="match_parent" android:id="@+id/tab_waiting" android:text="Chờ nhận" android:layout_weight="1" android:gravity="center" android:background="@drawable/bg_card" android:textColor="@color/ink" android:textSize="12sp"/>
+    <TextView android:layout_width="0dp" android:layout_height="match_parent" android:id="@+id/tab_accepted" android:text="Đã nhận" android:layout_weight="1" android:gravity="center" android:background="@drawable/bg_card" android:textColor="@color/ink" android:textSize="12sp"/>
+    <TextView android:layout_width="0dp" android:layout_height="match_parent" android:id="@+id/tab_done" android:text="Hoàn tất" android:layout_weight="1" android:gravity="center" android:background="@drawable/bg_card" android:textColor="@color/ink" android:textSize="12sp"/>
+  </LinearLayout>
+  <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:layout_marginTop="12dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/request_list" android:orientation="vertical"/>
+  </ScrollView>
+  <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_next" android:text="Tạo yêu cầu mới" android:layout_marginTop="10dp"/>
+</LinearLayout>
