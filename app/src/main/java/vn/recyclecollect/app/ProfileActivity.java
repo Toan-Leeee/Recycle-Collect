@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends BaseActivity {
     @Override
@@ -17,6 +19,11 @@ public class ProfileActivity extends BaseActivity {
         String key = data.email + "_";
         String displayName =
                 prefs.getString(key + "name", new LocalAccounts(this).name(data.email));
+        if (displayName.isEmpty()
+                && FirebaseAuth.getInstance().getCurrentUser() != null) {
+            displayName = FirebaseSession.name(this,
+                    FirebaseAuth.getInstance().getCurrentUser());
+        }
         if (displayName.isEmpty()) displayName = "Nguyễn Minh Anh";
         ((TextView) findViewById(R.id.profile_heading)).setText(displayName);
         ((TextView) findViewById(R.id.profile_role))
@@ -54,7 +61,7 @@ public class ProfileActivity extends BaseActivity {
                 });
         findViewById(R.id.btn_logout)
                 .setOnClickListener(v -> {
-                    data.email = "";
+                    FirebaseSession.signOut(this);
                     Intent intent = new Intent(this, LoginActivity.class);
                     intent.addFlags(
                             Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

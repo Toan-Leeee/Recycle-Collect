@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,7 +19,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         FrameLayout host = findViewById(R.id.screen_content);
         LayoutInflater.from(this).inflate(layoutResID, host, true);
 
-        boolean authentication = this instanceof LoginActivity || this instanceof RegisterActivity;
+        boolean authentication = this instanceof LoginActivity
+                || this instanceof RegisterActivity
+                || this instanceof ForgotPasswordActivity;
         ImageButton back = findViewById(R.id.screen_back);
         back.setVisibility(
                 this instanceof LoginActivity || this instanceof HomeActivity
@@ -45,7 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                 menu.getMenu()
                         .add("Đăng xuất")
                         .setOnMenuItemClickListener(item -> {
-                            AppData.get(this).email = "";
+                            FirebaseSession.signOut(this);
                             Intent intent = new Intent(this, LoginActivity.class);
                             intent.addFlags(
                                     Intent.FLAG_ACTIVITY_NEW_TASK
@@ -118,11 +120,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     private String screenTitle() {
         if (this instanceof LoginActivity) return "Đăng nhập";
         if (this instanceof RegisterActivity) return "Đăng ký";
+        if (this instanceof ForgotPasswordActivity) return "Quên mật khẩu";
         if (this instanceof HomeActivity) return "Trang chủ";
         if (this instanceof ProfileActivity) return "Hồ sơ cá nhân";
         if (this instanceof MaterialsActivity) return "Danh mục và bảng giá";
         if (this instanceof CreateRequestActivity) return "Tạo yêu cầu thu gom";
-        if (this instanceof MyRequestsActivity) return "Yêu cầu của tôi";
+        if (this instanceof MyRequestsActivity)
+            return AppData.get(this).role.equals("collector") ? "Đơn đã nhận" : "Yêu cầu của tôi";
         if (this instanceof RequestDetailActivity) return "Chi tiết yêu cầu";
         if (this instanceof ExploreRequestsActivity) return "Yêu cầu chờ nhận";
         if (this instanceof MapActivity) return "Bản đồ yêu cầu";

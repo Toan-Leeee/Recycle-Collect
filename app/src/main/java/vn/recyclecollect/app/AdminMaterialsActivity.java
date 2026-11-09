@@ -1,9 +1,10 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -26,6 +27,12 @@ public class AdminMaterialsActivity extends BaseActivity {
             LinearLayout row = new LinearLayout(this);
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setPadding(0, pad, 0, pad);
+            ImageView photo = new ImageView(this);
+            photo.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            MaterialImages.showMaterial(this, photo, item.getKey());
+            LinearLayout.LayoutParams imageSize = new LinearLayout.LayoutParams(56 * pad / 10, 56 * pad / 10);
+            imageSize.setMargins(0, 0, pad, 0);
+            row.addView(photo, imageSize);
             TextView name = new TextView(this);
             name.setText(item.getKey());
             name.setTextColor(getColor(R.color.ink));

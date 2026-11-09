@@ -15,6 +15,7 @@
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/line" android:layout_marginTop="10dp"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/detail_collector" android:text="Người thu gom: Chưa có" android:textSize="13sp" android:textStyle="normal" android:textColor="@color/ink" android:layout_marginTop="10dp"/>
     <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_next" android:text="Nhận yêu cầu" android:layout_marginTop="65dp"/>
+    <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_chat" android:text="Tin nhắn" android:drawableStart="@drawable/ic_message" android:drawablePadding="6dp" android:layout_marginTop="8dp" android:visibility="gone" style="@style/SecondaryButton"/>
     <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_edit" android:text="Chỉnh sửa yêu cầu" android:layout_marginTop="8dp" style="@style/SecondaryButton"/>
     <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_cancel" android:text="Hủy yêu cầu" android:layout_marginTop="8dp" style="@style/SecondaryButton"/>
   </LinearLayout>

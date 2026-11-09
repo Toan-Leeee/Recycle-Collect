@@ -5,7 +5,10 @@
     <EditText android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/material_name" android:hint="Giấy / carton" android:inputType="text" android:background="@drawable/bg_card" android:paddingStart="10dp" android:paddingEnd="10dp" android:textSize="14sp" android:textColor="@color/ink" android:layout_marginTop="5dp"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Đơn giá tham khảo (đ/kg)" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/green_dark" android:layout_marginTop="20dp"/>
     <EditText android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/material_price" android:hint="3.000" android:inputType="number" android:background="@drawable/bg_card" android:paddingStart="10dp" android:paddingEnd="10dp" android:textSize="14sp" android:textColor="@color/ink" android:layout_marginTop="5dp"/>
-    <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_next" android:text="Lưu thay đổi" android:layout_marginTop="80dp"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ảnh minh họa vật liệu" android:textSize="12sp" android:textStyle="bold" android:textColor="@color/green_dark" android:layout_marginTop="20dp"/>
+    <ImageView android:id="@+id/material_photo_preview" android:layout_width="match_parent" android:layout_height="160dp" android:layout_marginTop="8dp" android:background="@drawable/bg_card" android:scaleType="centerCrop" android:contentDescription="Ảnh minh họa vật liệu"/>
+    <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_material_photo" android:text="Chọn ảnh từ thiết bị" android:layout_marginTop="8dp" style="@style/SecondaryButton"/>
+    <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_next" android:text="Lưu thay đổi" android:layout_marginTop="24dp"/>
     <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_cancel" android:text="Hủy" android:layout_marginTop="8dp" style="@style/SecondaryButton"/>
   </LinearLayout>
 </ScrollView>

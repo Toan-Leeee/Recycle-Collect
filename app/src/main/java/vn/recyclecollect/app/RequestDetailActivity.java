@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -62,6 +62,14 @@ public class RequestDetailActivity extends BaseActivity {
         Button action = findViewById(R.id.btn_next),
                 cancel = findViewById(R.id.btn_cancel),
                 edit = findViewById(R.id.btn_edit);
+        Button chat = findViewById(R.id.btn_chat);
+        if ((owner || data.email.equals(request.collectorEmail))
+                && (request.status.equals("Đã nhận") || request.status.equals("Hoàn tất"))) {
+            chat.setVisibility(View.VISIBLE);
+            chat.setText(request.status.equals("Hoàn tất")
+                    ? "Xem hội thoại" : "Tin nhắn");
+            chat.setOnClickListener(v -> openRequest(ChatActivity.class, request.id));
+        }
         if (collector && request.status.equals("Đang chờ")) {
             action.setText("Nhận yêu cầu");
             action.setOnClickListener(v -> new com.google.android.material.dialog.MaterialAlertDialogBuilder(this)

@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 public class Request {
     public final String id;

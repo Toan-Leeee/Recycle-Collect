@@ -16,6 +16,7 @@
       <RadioButton android:layout_width="0dp" android:layout_height="match_parent" android:id="@+id/role_collector" android:text="Người thu gom" android:layout_weight="1" android:buttonTint="@color/ink"/>
     </RadioGroup>
     <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/btn_next" android:text="Đăng ký" android:layout_marginTop="25dp"/>
+    <Button android:layout_width="match_parent" android:layout_height="46dp" android:id="@+id/register_google" android:text="Tiếp tục bằng Google" android:layout_marginTop="10dp" style="@style/SecondaryButton"/>
     <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/register_login" android:text="Đã có tài khoản? Đăng nhập" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/ink" android:layout_marginTop="18dp" android:gravity="center"/>
   </LinearLayout>
 </ScrollView>

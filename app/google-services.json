@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1056966753968",
+    "project_id": "recyclecollect-9ac61",
+    "storage_bucket": "recyclecollect-9ac61.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1056966753968:android:b9625024ccb8d8d2bc4575",
+        "android_client_info": {
+          "package_name": "vn.recyclecollect.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1056966753968-nhu3ua7v4aqb7snjf7prr4ckq5olptpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "vn.recyclecollect.app",
+            "certificate_hash": "4995b57caeff286502e919bfcaa433d506a28759"
+          }
+        },
+        {
+          "client_id": "1056966753968-bcea76ocv4133pg4i7s004q96ch90je2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN7CHjcof7jP1nhwxY3yaeNCtFfg77Ycs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1056966753968-bcea76ocv4133pg4i7s004q96ch90je2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

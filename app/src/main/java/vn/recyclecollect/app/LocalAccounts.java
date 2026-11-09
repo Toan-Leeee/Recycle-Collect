@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,6 +19,12 @@ public final class LocalAccounts {
         prefs =
                 context.getApplicationContext()
                         .getSharedPreferences("recycle_accounts", Context.MODE_PRIVATE);
+    }
+
+    public static boolean isDemo(String email) {
+        return email != null && (email.equalsIgnoreCase("dan@demo.vn")
+                || email.equalsIgnoreCase("gom@demo.vn")
+                || email.equalsIgnoreCase("admin@demo.vn"));
     }
 
     public boolean exists(String email) {

@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.Manifest;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -25,6 +26,10 @@ public class MapActivity extends BaseActivity {
     private TextView status;
     private LocationManager locationManager;
     private LocationListener locationListener;
+    private Location collectorLocation;
+    private String materialFilter = "";
+    private int radiusKm = 5;
+    private boolean radiusApplied;
 
     @Override
     protected void onCreate(Bundle state) {
@@ -35,8 +40,14 @@ public class MapActivity extends BaseActivity {
             finish();
             return;
         }
+        materialFilter = getIntent().getStringExtra("material_filter") == null
+                ? "" : getIntent().getStringExtra("material_filter");
+        radiusKm = Math.max(1, Math.min(10, getIntent().getIntExtra("radius_km", 5)));
+        radiusApplied = getIntent().getBooleanExtra("radius_applied", false);
+        collectorLocation = lastKnownLocation();
 
         status = findViewById(R.id.map_status);
+        renderPreview();
         map = findViewById(R.id.request_map);
         map.getSettings().setJavaScriptEnabled(true);
         map.getSettings().setAllowFileAccess(true);
@@ -64,13 +75,19 @@ public class MapActivity extends BaseActivity {
                 });
         map.loadUrl("file:///android_asset/map.html");
         findViewById(R.id.btn_my_location).setOnClickListener(v -> locateMe());
-        next(R.id.btn_next, ExploreRequestsActivity.class);
+        findViewById(R.id.btn_next).setOnClickListener(v -> {
+            Intent intent = new Intent(this, ExploreRequestsActivity.class);
+            intent.putExtra("material_filter", materialFilter);
+            intent.putExtra("radius_km", radiusKm);
+            intent.putExtra("radius_applied", radiusApplied);
+            startActivity(intent);
+        });
     }
 
     private void showRequests() {
         JSONArray points = new JSONArray();
         for (Request request : AppData.get(this).requests) {
-            if (!request.status.equals("Đang chờ") || request.location == null) continue;
+            if (!matches(request) || request.location == null) continue;
             String[] parts = request.location.split(",");
             if (parts.length != 2) continue;
             try {
@@ -82,6 +99,9 @@ public class MapActivity extends BaseActivity {
                 point.put("material", request.material);
                 point.put("kg", request.estimatedKg);
                 point.put("status", request.status);
+                point.put("demo", request.ownerEmail.equals("dan@demo.vn")
+                        && (request.id.equals("TG001")
+                        || request.id.matches("TG10[1-9]|TG110")));
                 point.put("lat", Math.round(lat * 1000d) / 1000d);
                 point.put("lng", Math.round(lng * 1000d) / 1000d);
                 points.put(point);
@@ -90,7 +110,52 @@ public class MapActivity extends BaseActivity {
             }
         }
         map.evaluateJavascript("renderRequests(" + points + ")", null);
-        status.setText(points.length() + " yêu cầu chờ nhận có tọa độ");
+        status.setText((materialFilter.isEmpty() ? "Tất cả vật liệu" : materialFilter)
+                + " · " + points.length() + " điểm có GPS"
+                + (radiusApplied && collectorLocation != null
+                    ? " · trong " + radiusKm + " km" : ""));
+    }
+
+    private boolean matches(Request request) {
+        if (!request.status.equals("Đang chờ")) return false;
+        if (!materialFilter.isEmpty() && !materialFilter.equals(request.material)) return false;
+        if (radiusApplied && collectorLocation != null) {
+            float km = CollectorCards.distanceKm(collectorLocation, request);
+            return !Float.isNaN(km) && km <= radiusKm;
+        }
+        return true;
+    }
+
+    private void renderPreview() {
+        LinearLayout preview = findViewById(R.id.map_preview_list);
+        preview.removeAllViews();
+        for (Request request : AppData.get(this).requests) {
+            if (!matches(request)) continue;
+            preview.addView(CollectorCards.create(this, request, collectorLocation, true,
+                    () -> {
+                        renderPreview();
+                        showRequests();
+                    }));
+            return;
+        }
+        TextView empty = new TextView(this);
+        empty.setText("Không có yêu cầu phù hợp. Đơn chưa có GPS sẽ không có điểm trên bản đồ.");
+        empty.setTextColor(getColor(R.color.muted));
+        empty.setPadding(8, 8, 8, 8);
+        preview.addView(empty);
+    }
+
+    private Location lastKnownLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) return null;
+        LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        try {
+            Location gps = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Location network = manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            return gps != null ? gps : network;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private void locateMe() {
@@ -128,11 +193,13 @@ public class MapActivity extends BaseActivity {
     }
 
     private void showMyLocation(Location location) {
+        collectorLocation = location;
         map.evaluateJavascript(
                 "showMyLocation(" + location.getLatitude() + "," + location.getLongitude() + ")",
                 null);
         status.setText(
                 "Vị trí của tôi: " + location.getLatitude() + ", " + location.getLongitude());
+        renderPreview();
     }
 
     @Override

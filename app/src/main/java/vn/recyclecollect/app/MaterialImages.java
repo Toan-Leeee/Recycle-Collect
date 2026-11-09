@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,6 +24,20 @@ public final class MaterialImages {
     public static void showCategory(ImageView view, String material) {
         view.setImageResource(illustration(material));
         view.setContentDescription("Ảnh minh họa loại vật liệu: " + material);
+    }
+
+    public static void showMaterial(Context context, ImageView view, String material) {
+        String photo = AppData.get(context).materialPhotos.get(material);
+        if (photo != null && !photo.isEmpty()) {
+            File file = new File(context.getFilesDir(), photo);
+            Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+            if (bitmap != null) {
+                view.setImageBitmap(bitmap);
+                view.setContentDescription("Ảnh vật liệu: " + material);
+                return;
+            }
+        }
+        showCategory(view, material);
     }
 
     public static boolean showRequestPhoto(Context context, ImageView view, Request request) {

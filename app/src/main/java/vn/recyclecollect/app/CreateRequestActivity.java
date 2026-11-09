@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.Manifest;
 import android.content.Intent;
@@ -78,6 +78,11 @@ public class CreateRequestActivity extends BaseActivity {
                         if (kg <= 0) throw new NumberFormatException();
                     } catch (NumberFormatException e) {
                         weight.setError("Nhập khối lượng lớn hơn 0");
+                        return;
+                    }
+                    if (location.isEmpty()) {
+                        locationText.setText("Cần chọn vị trí trước khi gửi để người thu gom thấy trên bản đồ");
+                        Toast.makeText(this, "Hãy lấy vị trí trước khi gửi", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     Request request =
@@ -180,14 +185,19 @@ public class CreateRequestActivity extends BaseActivity {
         }
         LocationManager manager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Location last = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (last == null) {
+            last = manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        }
         if (last != null) {
             setLocation(last);
             return;
         }
-        locationText.setText("Đang lấy vị trí GPS...");
+        locationText.setText("Đang lấy vị trí GPS hoặc mạng...");
         try {
+            String provider = manager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                    ? LocationManager.GPS_PROVIDER : LocationManager.NETWORK_PROVIDER;
             manager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER,
+                    provider,
                     1000,
                     1,
                     new LocationListener() {

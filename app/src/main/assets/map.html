@@ -6,23 +6,47 @@
     <link rel="stylesheet" href="leaflet/leaflet.css">
     <style>
         html, body, #map { width: 100%; height: 100%; margin: 0; }
-        .leaflet-container { font-family: Arial, sans-serif; }
+        .leaflet-container {
+            font-family: Arial, sans-serif;
+            background-color: #edf4ef;
+            background-image: linear-gradient(#cadbd0 1px, transparent 1px),
+                              linear-gradient(90deg, #cadbd0 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+        #empty-map {
+            position: absolute;
+            z-index: 900;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #27513f;
+            text-align: center;
+            font-size: 13px;
+            pointer-events: none;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div id="map" aria-label="Bản đồ yêu cầu thu gom"></div>
+    <div id="empty-map">Chưa có yêu cầu được gắn vị trí GPS trên bản đồ</div>
     <script src="leaflet/leaflet.js"></script>
     <script>
         const map = L.map('map').setView([21.0285, 105.8542], 12);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · <a href="https://openstreetmap.de/">OSM DE</a>'
         }).addTo(map);
         let requestMarkers = L.layerGroup().addTo(map);
         let myMarker = null;
 
         function renderRequests(requests) {
             requestMarkers.clearLayers();
+            document.getElementById('empty-map').style.display = requests.length ? 'none' : 'block';
             const bounds = [];
             for (const item of requests) {
                 if (!Number.isFinite(item.lat) || !Number.isFinite(item.lng)) continue;
@@ -33,6 +57,10 @@
                 box.appendChild(title);
                 box.appendChild(document.createElement('br'));
                 box.appendChild(document.createTextNode(item.kg + ' kg · ' + item.status));
+                if (item.demo) {
+                    box.appendChild(document.createElement('br'));
+                    box.appendChild(document.createTextNode('Điểm minh họa của dữ liệu mẫu'));
+                }
                 box.appendChild(document.createElement('br'));
                 const button = document.createElement('button');
                 button.type = 'button';

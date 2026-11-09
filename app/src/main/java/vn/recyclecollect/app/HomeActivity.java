@@ -1,4 +1,4 @@
-package vn.edu.recyclecollect;
+package vn.recyclecollect.app;
 
 import android.content.Intent;
 import android.hardware.*;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class HomeActivity extends BaseActivity implements SensorEventListener {
     private SensorManager sensors;
@@ -20,6 +22,9 @@ public class HomeActivity extends BaseActivity implements SensorEventListener {
         setContentView(R.layout.activity_home);
         AppData d = AppData.get(this);
         String name = new LocalAccounts(this).name(d.email);
+        if (name.isEmpty() && FirebaseAuth.getInstance().getCurrentUser() != null) {
+            name = FirebaseSession.name(this, FirebaseAuth.getInstance().getCurrentUser());
+        }
         if (name.isEmpty())
             name =
                     d.role.equals("resident")
